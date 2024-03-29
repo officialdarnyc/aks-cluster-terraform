@@ -58,6 +58,6 @@ To get started, follow these steps:
 
 To clean up and delete the AKS cluster, run the following command:
 
-    ```bash
+    ```
     terraform destroy -auto-approve
     ```
