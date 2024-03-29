@@ -1,0 +1,15 @@
+# Terraform files
+*.tfstate
+*.tfstate.backup
+*.tfplan
+.terraform/
+
+# Local .env files
+.env
+
+# Ignore any generated files or directories
+**/terraform.tfstate.d
+**/.terraform.lock.hcl
+**/terraform.tfvars
+**/.terraformrc
+**/.terraform-version
