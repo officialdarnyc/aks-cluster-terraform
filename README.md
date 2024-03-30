@@ -20,7 +20,7 @@ To get started, follow these steps:
     az ad sp create-for-rbac --name <service_principal_name> --role Contributor --scopes /subscriptions/<subscription_id>
     ```
 
-2. Specify the crdentials to Terraform via environment variables:
+2. Specify the service credentials to Terraform via environment variables:
 
     ```bash
     export ARM_SUBSCRIPTION_ID="<azure_subscription_id>"
@@ -69,10 +69,14 @@ To get started, follow these steps:
     az aks get-credentials --resource-group <resource-group-name> --name <aks-cluster-name>
     ```
 
+## Shut Down the Cluster
+
+To shut down the cluster without deleting it, execute the `stop-running-aks.sh` script:
+
+    ./stop-running-aks.sh <resource_group> <cluster_name>
+
 ## Clean Up
 
 To clean up and delete the AKS cluster, run the following command:
-
-    
+  
     terraform destroy -auto-approve
-    
