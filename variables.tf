@@ -29,6 +29,13 @@ variable "msi_id" {
   default     = null
 }
 
+variable "application_routing_enabled" {
+  type        = bool
+  description = "Enable or disable the HTTP application routing addon. The add-on uses a Kubernetes CRD called NginxIngressController"
+  default     = true
+
+}
+
 variable "username" {
   type        = string
   description = "The admin username for the new cluster."

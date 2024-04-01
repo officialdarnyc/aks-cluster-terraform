@@ -4,10 +4,11 @@ resource "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_kubernetes_cluster" "k8s" {
-  location            = azurerm_resource_group.rg.location
-  name                = "${var.project_name}-cluster"
-  resource_group_name = azurerm_resource_group.rg.name
-  dns_prefix          = "${var.project_name}-dns"
+  location                         = azurerm_resource_group.rg.location
+  name                             = "${var.project_name}-cluster"
+  resource_group_name              = azurerm_resource_group.rg.name
+  dns_prefix                       = "${var.project_name}-dns"
+  http_application_routing_enabled = var.application_routing_enabled
 
   identity {
     type = "SystemAssigned"
