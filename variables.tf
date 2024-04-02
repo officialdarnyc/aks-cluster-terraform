@@ -32,7 +32,7 @@ variable "msi_id" {
 variable "application_routing_enabled" {
   type        = bool
   description = "Enable or disable the HTTP application routing addon. The add-on uses a Kubernetes CRD called NginxIngressController"
-  default     = true
+  default     = false
 
 }
 

@@ -40,3 +40,7 @@ output "kube_config" {
   value     = azurerm_kubernetes_cluster.k8s.kube_config_raw
   sensitive = true
 }
+
+output "http_application_routing_zone_name" {
+  value = azurerm_kubernetes_cluster.k8s.http_application_routing_zone_name
+}
