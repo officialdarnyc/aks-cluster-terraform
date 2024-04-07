@@ -15,8 +15,8 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 
   default_node_pool {
-    name       = "agentpool"
-    vm_size    = "Standard_D2_v2"
+    name       = var.node_pool_name
+    vm_size    = var.vm_size
     node_count = var.node_count
     upgrade_settings {
       max_surge = "10%"
