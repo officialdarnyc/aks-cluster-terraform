@@ -15,9 +15,9 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   }
 
   default_node_pool {
-    name       = var.node_pool_name
-    vm_size    = var.vm_size
-    node_count = var.node_count
+    name       = "default"
+    vm_size    = "Standard_D2_v2"
+    node_count = 1
     upgrade_settings {
       max_surge = "10%"
     }
@@ -33,4 +33,11 @@ resource "azurerm_kubernetes_cluster" "k8s" {
     network_plugin    = "kubenet"
     load_balancer_sku = "standard"
   }
+}
+
+resource "azurerm_kubernetes_cluster_node_pool" "np" {
+  kubernetes_cluster_id = azurerm_kubernetes_cluster.k8s.id
+  name                  = var.node_pool_name
+  node_count            = var.node_count
+  vm_size               = var.vm_size
 }

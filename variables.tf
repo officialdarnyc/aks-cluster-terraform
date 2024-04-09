@@ -20,18 +20,18 @@ variable "project_name" {
 variable "node_pool_name" {
   type        = string
   description = "The name of the node pool."
-  default     = "agentpool"
+  default     = "workerpool"
 }
 
 variable "vm_size" {
   type        = string
-  description = "The size of the Virtual Machine."
-  default     = "Standard_D2_v2"
+  description = "The size of the Virtual Machine in the worker nodes"
+  default     = "Standard_E2_v3"
 }
 
 variable "node_count" {
   type        = number
-  description = "The initial quantity of nodes for the node pool."
+  description = "The quantity of nodes for the worker node pool."
   default     = 2
 }
 
