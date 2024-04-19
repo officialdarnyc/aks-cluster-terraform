@@ -1,12 +1,18 @@
+data "azurerm_resource_group" "existing_rg" {
+  count = var.create_rg ? 0 : 1
+  name  = var.rg_name
+}
+
 resource "azurerm_resource_group" "rg" {
-  location = var.resource_group_location
+  count    = var.create_rg ? 1 : 0
+  location = var.location
   name     = "${var.resource_group_name_prefix}-${var.project_name}"
 }
 
 resource "azurerm_kubernetes_cluster" "k8s" {
-  location                         = azurerm_resource_group.rg.location
+  location                         = var.location
   name                             = "${var.project_name}-cluster"
-  resource_group_name              = azurerm_resource_group.rg.name
+  resource_group_name              = var.create_rg ? azurerm_resource_group.rg[0].name : var.rg_name
   dns_prefix                       = "${var.project_name}-dns"
   http_application_routing_enabled = var.application_routing_enabled
 

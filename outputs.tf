@@ -1,5 +1,5 @@
 output "resource_group_name" {
-  value = azurerm_resource_group.rg.name
+  value = var.create_rg ? azurerm_resource_group.rg[0].name : data.azurerm_resource_group.existing_rg[0].name
 }
 
 output "kubernetes_cluster_name" {

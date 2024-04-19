@@ -47,7 +47,7 @@ To get started, follow these steps:
     terraform init
     ```
 
-6. Modify the `variables.tf` file to customize the AKS cluster configuration.
+6. Modify the `variables.tf` file to customize the AKS cluster configuration. However, you may use a `.tfvars` file to set your own values for the defined variables. If you'll be deploying the AKS cluster to an existing resource group, specify the `create_rg` input variable in your `.tfvars` file setting it to `false` and also specify the name of your existing resource group using the `rg_name` variable.
 
 7. Review the `main.tf` file to ensure it matches your requirements.
 
